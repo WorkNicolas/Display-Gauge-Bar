@@ -1,5 +1,12 @@
+"""
+Group 1 Display Gauge prepared by:
+ - Carl Nicolas V. Mendoza | 301386435
+ - Michael Asfeha          | 301411864
+ - Ali Asjid Muhammad      | 
+
+"""
+
 import tkinter as tk
-import math
 
 # Main Window
 root = tk.Tk()
