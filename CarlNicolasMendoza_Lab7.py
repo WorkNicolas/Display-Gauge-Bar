@@ -130,10 +130,10 @@ shell.createRectangle(canvas, 0.25, "aliceblue", "black", 0, 1.45, 1.2)
 
 # Multi Label
 shell.createMultiLabel(canvas, 0.25, 1.45, 1.2, 0, "0", "100", x_spread=0, y_offset=0)
-shell.createMultiLabel(canvas, 0.25, 1.45, 1.2, 0, "10", "90", x_spread=60, y_offset=-50)
-shell.createMultiLabel(canvas, 0.25, 1.45, 1.2, 0, "20", "80", x_spread=100, y_offset=-120)
-shell.createMultiLabel(canvas, 0.25, 1.45, 1.2, 0, "30", "70", x_spread=103, y_offset=-200)
-shell.createMultiLabel(canvas, 0.25, 1.45, 1.2, 0, "40", "60", x_spread=60, y_offset=-290)
+shell.createMultiLabel(canvas, 0.25, 1.45, 1.2, 0, "10", "90", x_spread=80, y_offset=-80)
+shell.createMultiLabel(canvas, 0.25, 1.45, 1.2, 0, "20", "80", x_spread=110, y_offset=-170)
+shell.createMultiLabel(canvas, 0.25, 1.45, 1.2, 0, "30", "70", x_spread=80, y_offset=-270)
+shell.createMultiLabel(canvas, 0.25, 1.45, 1.2, 0, "40", "60", x_spread=20, y_offset=-340)
 
 # Single Label
 shell.createLabel(canvas, "50", -190)
