@@ -119,7 +119,8 @@ class Circle():
         # Calculate the center position
         circle_center_x = (self.x0 + self.x1) / 2
         circle_center_y = (self.y0 + self.y1) / 2
-        # Create a line from center to target coordinates with a tag for deletion
+        
+        # Create Line pointing to Target Coords
         canvas.create_line(circle_center_x, circle_center_y, target_x, target_y,
                         fill=fill, width=width, tags="humidity_line")
         print(f"Line created from ({circle_center_x}, {circle_center_y}) to ({target_x}, {target_y})")
@@ -146,7 +147,7 @@ class Circle():
                 20: [132.5, 323.4375],
                 30: [162.5, 223.4375],
                 40: [222.5, 153.4375],
-                50: [325, 135],  # Center top position (estimated)
+                50: [325, 135],
                 60: [427.5, 153.4375],
                 70: [487.5, 223.4375],
                 80: [517.5, 323.4375],
