@@ -7,6 +7,7 @@ Group 1 Display Gauge prepared by:
 """
 
 import tkinter as tk
+from functools import partial
 
 # Main Window
 root = tk.Tk()
@@ -133,15 +134,12 @@ class Circle():
         print(f"Line created from ({circle_center_x}, {circle_center_y}) to ({target_x}, {target_y})")
 
 
-    def onClick(self, canvas, humidity_input):
+    def pointToCoord(self, canvas, humidity_input):
         try:
             # Convert input to an integer
             humidity = int(humidity_input)
             
-            # Validate input is between 0 and 100
-            if humidity < 0 or humidity > 100:
-                print("Humidity must be between 0 and 100")
-                return
+            
             
             # Calculate the center position
             circle_center_x = (self.x0 + self.x1) / 2
@@ -186,10 +184,18 @@ class Circle():
             
             # Create the line from center to target
             self.createLine(canvas, target_x, target_y)
-            
+        
         except ValueError:
             print("Please enter a valid number")
-
+            
+    def onClick(self, canvas, humidity_input):
+        # Validate input is between 0 and 100
+        humidity = int(humidity_input)
+        if humidity < 0 or humidity > 100:
+            print("Humidity must be between 0 and 100")
+            return
+        for i in range(0, humidity + 1):
+            root.after(50 * i, partial(self.pointToCoord, canvas, i))
 
 # Create main shapes
 shell = Circle(50, 50, 600, 600, "gray", "black", 1)
@@ -233,6 +239,9 @@ humidity_input = shell.createInputField(canvas, root, y_axis=150, width=15)
 # Button
 button = tk.Button(root, text="Submit", command=lambda: shell.onClick(canvas, humidity_input.get()))
 canvas.create_window(325, 520, window=button)
+
+# Start at 0
+shell.pointToCoord(canvas, 0)
 
 # Print the coordinates of each label
 print("Coordinates of each label:")
